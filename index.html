@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<center>
     <div class="card">
+        <img src="images/rain.png" alt="rain_png" class="weather-icon">
+        <h1>
+            kerakli davlat nomini kiriting
+        </h1>
         <div class="search">
             <input type="text" placeholder="Davlat nomini kiriting" spellcheck="false">
             <button type="button"><img src="images/search.png" alt="search"></button>
@@ -17,6 +22,7 @@
         </div>
         <div class="weather">
             <img src="images/rain.png" alt="rain_png" class="weather-icon">
+            <img src="images/humidity.png" alt="humidity_png">
             <h1 class="temp">22°C</h1>
             <h2 class="city">New York</h2>
             <div class="details">
@@ -37,6 +43,7 @@
             </div>
         </div>
     </div>
+</center>
 <script>
     const apiKey = "82ed0f194588a4595aa501b864176bb5";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
@@ -44,7 +51,7 @@
     const searchBtn = document.querySelector(".search button");
     const weatherIcon = document.querySelector(".weather-icon")
     async function checkWeather(city){
-        const response = await fetch(apiUrl + city + `&appid=&{apiKey}`)
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
         if(response.status == 404){
             document.querySelector(".error").style.display = "block";
